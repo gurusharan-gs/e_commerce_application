@@ -1,14 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Shoppage from "./pages/Shoppage";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
-      <h1>e commerce application</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/collections/all" element={<Shoppage />} />
+        <Route path="/collections/all/:id" element={<ProductDetails />} />
+      </Routes>
     </div>
   );
 }
